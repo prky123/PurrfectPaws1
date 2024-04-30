@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>Registration.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Registration.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com</span><span class="s2">.</span><span class="s1">example</span><span class="s2">.</span><span class="s1">purrfectpaws</span>
+
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">os</span><span class="s2">.</span><span class="s1">Bundle</span>
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Log</span>
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">Button</span>
+<span class="s1">import android</span><span class="s2">.</span><span class="s1">widget</span><span class="s2">.</span><span class="s1">EditText</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">activity</span><span class="s2">.</span><span class="s1">enableEdgeToEdge</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">appcompat</span><span class="s2">.</span><span class="s1">app</span><span class="s2">.</span><span class="s1">AppCompatActivity</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">core</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">ViewCompat</span>
+<span class="s1">import androidx</span><span class="s2">.</span><span class="s1">core</span><span class="s2">.</span><span class="s1">view</span><span class="s2">.</span><span class="s1">WindowInsetsCompat</span>
+
+<span class="s0">class </span><span class="s1">Registration : AppCompatActivity</span><span class="s2">() {</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">usernameInput : EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">passwordInput : EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">conpass : EditText</span>
+    <span class="s1">lateinit </span><span class="s0">var </span><span class="s1">regBtn : Button</span>
+
+    <span class="s1">override </span><span class="s0">fun </span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState: Bundle?</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">.</span><span class="s1">onCreate</span><span class="s2">(</span><span class="s1">savedInstanceState</span><span class="s2">)</span>
+        <span class="s1">enableEdgeToEdge</span><span class="s2">()</span>
+        <span class="s1">setContentView</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">layout</span><span class="s2">.</span><span class="s1">activity_registration</span><span class="s2">)</span>
+
+        <span class="s1">usernameInput </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">username_input</span><span class="s2">)</span>
+        <span class="s1">passwordInput </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">password_input</span><span class="s2">)</span>
+        <span class="s1">conpass </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">cps_input</span><span class="s2">)</span>
+        <span class="s1">regBtn </span><span class="s2">= </span><span class="s1">findViewById</span><span class="s2">(</span><span class="s1">R</span><span class="s2">.</span><span class="s1">id</span><span class="s2">.</span><span class="s1">register_btn</span><span class="s2">)</span>
+
+        <span class="s1">regBtn</span><span class="s2">.</span><span class="s1">setOnClickListener</span><span class="s2">{</span>
+            <span class="s0">val </span><span class="s1">username </span><span class="s2">= </span><span class="s1">usernameInput</span><span class="s2">.</span><span class="s1">text</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">()</span>
+            <span class="s0">val </span><span class="s1">password </span><span class="s2">= </span><span class="s1">passwordInput</span><span class="s2">.</span><span class="s1">text</span><span class="s2">.</span><span class="s1">toString</span><span class="s2">()</span>
+            <span class="s1">Log</span><span class="s2">.</span><span class="s1">i</span><span class="s2">(</span><span class="s3">&quot;Test Credentials&quot;</span><span class="s2">, </span><span class="s3">&quot;Username: </span><span class="s0">$</span><span class="s1">username </span><span class="s3">and Password : </span><span class="s0">$</span><span class="s1">password </span><span class="s3">and ConfirmPassword : </span><span class="s0">$</span><span class="s1">password</span><span class="s3">&quot;</span><span class="s2">)</span>
+        <span class="s2">}</span>
+
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
